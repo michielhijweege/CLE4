@@ -7,6 +7,7 @@ public class Bookshowmanager : MonoBehaviour
 	public GameObject book;
     public Inventory Inventory;
 
+    // open de log boek
     public void openbook()
 	{
 		book.SetActive(true);
@@ -14,6 +15,7 @@ public class Bookshowmanager : MonoBehaviour
 
     }
 
+    // sluit de log boek
     public void closebook()
 	{
 		book.SetActive(false);

@@ -34,6 +34,7 @@ public class Dialoguemanager : MonoBehaviour
     private const string PORTRAIT_TAG = "portrait";
     private const string LAYOUT_TAG = "layout";
 
+    // kijk of dat dit script maar een keer in de scane voor komt
     private void Awake()
     {
         if(instance != null)
@@ -43,6 +44,12 @@ public class Dialoguemanager : MonoBehaviour
         instance = this;
     }
 
+    public static Dialoguemanager Getinstance()
+    {
+        return instance;
+    }
+
+    // bij het start zorg dat de dialoog text niet zichbaar is 
     private void Start()
     {
         dialogueisplaying = false;
@@ -59,6 +66,7 @@ public class Dialoguemanager : MonoBehaviour
         }
     }
 
+    // kijk of dat er een dialogue word afgespeeklt zo ne doe niks zo ja als er geen keuze zijn en je op space klik ga door naar de volgende deel van het verhaal
     private void Update()
     {
         if (!dialogueisplaying)
@@ -71,11 +79,7 @@ public class Dialoguemanager : MonoBehaviour
         }
     }
 
-    public static Dialoguemanager Getinstance()
-    {
-        return instance;
-    }
-
+    // als de dialogue start zet alles klaar en de inventory uit
     public void EnterDialogueMode(TextAsset inkJSON, int nieuweNPCid, GameObject newtriggerobject)
     {
         triggerobject = newtriggerobject;
@@ -93,6 +97,7 @@ public class Dialoguemanager : MonoBehaviour
         ContinueStory();
     }
 
+    // zet de dialogue uit en sla het gesprek op in het log boek
     private void ExitDialogueMode()
     {
         Chatlog.allemenseninfo[NPCid].inkJSON.Add(currentchat);
@@ -107,6 +112,7 @@ public class Dialoguemanager : MonoBehaviour
         dialoguetext.text = "";
     }
 
+    // ga door met de story
     private void ContinueStory()
     {
         if (currentStory.canContinue)
@@ -124,6 +130,7 @@ public class Dialoguemanager : MonoBehaviour
         }
     }
 
+    // laat de zin woord voor woord zien en als er op left shift klick skip de animation
     private IEnumerator DisplayLine(string line)
     {
         currentchat += line;
@@ -142,6 +149,7 @@ public class Dialoguemanager : MonoBehaviour
         DisplayChoices();
     }
 
+    // hiede alle choices
     private void HideChoices()
     {
         foreach (var choicesbutton in choices)
@@ -150,6 +158,7 @@ public class Dialoguemanager : MonoBehaviour
         }
     }
 
+    // handel alle tag zodat de goede naam word laten zien en de correcte sprite animatie en de correcte layout word gebruikt
     private void HandleTags(List<string> currentTags)
     {
         foreach (var tag in currentTags)
@@ -180,6 +189,7 @@ public class Dialoguemanager : MonoBehaviour
         }
     }
 
+    // show alle choices
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
@@ -203,6 +213,7 @@ public class Dialoguemanager : MonoBehaviour
 
     }
 
+    // bij het maken van keuze ga door met het result
     public void MakeChoice(int choiceIndex)
     {
         currentchat += choicestext[choiceIndex].text + "\n";

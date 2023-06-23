@@ -24,6 +24,7 @@ public class Puzzel : MonoBehaviour
         }
     }
 
+    // vind je inventory en zorg dat deze niet meer open kan
     public void Start()
     {
         GameObject Inventorymanager = GameObject.Find("Inventory Trigger");
@@ -31,6 +32,7 @@ public class Puzzel : MonoBehaviour
         Inventory.canopen = false;
     }
 
+    // controleer of dat alle puzzel stukjes op de goede plek staan
     public void check()
     {
         if(correctplaceint == correctplace.Count && !once)

@@ -5,8 +5,10 @@ using UnityEngine;
 public class Dialoguetrigger : MonoBehaviour
 {
     [SerializeField] private TextAsset inkJSON;
+    // elke npc heeft zijn eigen id dit id bepaalt bij wie dit gesprek komt in het log boek
     public int NPCid;
 
+    // trigger de dialogue systeem
     public void triggertext()
     {
         GameObject myEventSystem = GameObject.Find("EventSystem");

@@ -24,6 +24,8 @@ public class settingsmenu : MonoBehaviour
 
     public float volume;
 
+
+    // krijg alle opgeslagen settings en zet deze correct  
     void Start()
     {
         resolutions = Screen.resolutions;
@@ -63,6 +65,7 @@ public class settingsmenu : MonoBehaviour
         audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("volume2"));
     }
 
+    // zet de volume van master en sla deze op
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("Master", volume);
@@ -70,6 +73,7 @@ public class settingsmenu : MonoBehaviour
         PlayerPrefs.SetFloat("volume", volume);
     }
 
+    // zet de volume van music en sla deze op
     public void SetVolume1(float volume)
     {
         audioMixer.SetFloat("Music", volume);
@@ -77,6 +81,7 @@ public class settingsmenu : MonoBehaviour
         PlayerPrefs.SetFloat("volume1", volume);
     }
 
+    // zet de volume van sfx en sla deze op
     public void SetVolume2(float volume)
     {
         audioMixer.SetFloat("SFX", volume);
@@ -84,17 +89,20 @@ public class settingsmenu : MonoBehaviour
         PlayerPrefs.SetFloat("volume2", volume);
     }
 
+    // verander tussen full screen aan of uit
     public void fullscreen()
     {
         if (toggle.isOn) {
             Screen.fullScreen = true;
             PlayerPrefs.SetInt("fullscreen", 1);
-     } else {
+        }
+        else {
             Screen.fullScreen = false;
             PlayerPrefs.SetInt("fullscreen", 0);
-     }
+        }
     }
 
+    // set de quality en sla deze op
     public void setquality(int qualityindex)
     {
         QualitySettings.SetQualityLevel(qualityindex);
@@ -102,6 +110,7 @@ public class settingsmenu : MonoBehaviour
         PlayerPrefs.SetInt("qualitytext", QualitySettings.GetQualityLevel());
     }
 
+    // set de resolution en sla deze op
     public void SetResolution (int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];

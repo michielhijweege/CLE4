@@ -9,6 +9,7 @@ public class Pauze : MonoBehaviour
     [SerializeField] Button button;
     private bool ispauze = false;
 
+    // kijk of escape word ingedrukt 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -17,6 +18,7 @@ public class Pauze : MonoBehaviour
         }
     }
 
+    // zet de game op pauze of op play
     public void pauzeswitch()
     {
         ispauze = !ispauze;

@@ -10,7 +10,7 @@ public class PuzzelPiece : MonoBehaviour
 
     public int rotationnumber;
 
-    // Update is called once per frame
+    // zorg dat je het kan oppakken en draaien
     void Update()
     {
         follow = Puzzel.follow[nummber];
@@ -32,6 +32,7 @@ public class PuzzelPiece : MonoBehaviour
         }
     }
 
+    // zorg dat niks anders tegelijk op kan worden gepakt
     public void switchstate()
     {
         if(Puzzel.follow[nummber] == false)

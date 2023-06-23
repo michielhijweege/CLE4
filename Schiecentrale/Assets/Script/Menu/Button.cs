@@ -9,6 +9,7 @@ public class Button : MonoBehaviour
     public GameObject settingui;
     public bool ismenu = true;
 
+    // switch tussen de menu en de setting screen
     public void menuswitch()
     {
         ismenu = !ismenu;
@@ -24,11 +25,13 @@ public class Button : MonoBehaviour
         }
     }
 
+    // start de game op
     public void play()
     {
         SceneManager.LoadScene("Game");
     }
 
+    // sluit de game
     public void quit()
     {
         Application.Quit();

@@ -17,6 +17,7 @@ public class Chatlog : MonoBehaviour
     [SerializeField] TMP_Text menseninfoamount;
     [SerializeField] TMP_Text chatamount;
 
+    // ga naar de volgende pagina met character  
     public void volgendeinfo()
     {
         //zorgen dat de info loopt naar de eerste pagina
@@ -49,6 +50,7 @@ public class Chatlog : MonoBehaviour
         menseninfoamount.text = currentmenseninfo.ToString() + " / " + amountofinfo.ToString();
     }
 
+    // ga naar de vorige pagina met character  
     public void vorigeinfo()
     {
         //zorgen dat de info loopt naar de laatste pagina
@@ -81,6 +83,7 @@ public class Chatlog : MonoBehaviour
         menseninfoamount.text = currentmenseninfo.ToString() + " / " + amountofinfo.ToString();
     }
 
+    // ga naar de volgende pagina met chat  
     public void volgendechat()
     {
         //zorgen dat de info loopt naar de eerste pagina
@@ -107,6 +110,7 @@ public class Chatlog : MonoBehaviour
         }
     }
 
+    // ga naar de vorige pagina met chat  
     public void vorigechat()
     {
         //zorgen dat de info loopt naar de laatste pagina
@@ -133,6 +137,7 @@ public class Chatlog : MonoBehaviour
         }
     }
 
+    // update alle character info page en chat log page
     public void Updateinfo(int id)
     {
         if (!kentmensen[id])

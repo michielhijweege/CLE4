@@ -5,7 +5,7 @@ using UnityEngine;
 public class Puzzel : MonoBehaviour
 {
     public List<bool> follow;
-    [SerializeField] List<GameObject> pieces;
+    public List<GameObject> pieces;
 
     [SerializeField] List<GameObject> piecesplace;
     public List<bool> correctplace;

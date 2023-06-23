@@ -25,6 +25,7 @@ public class Pauze : MonoBehaviour
             pauzeui.SetActive(true);
             gameui.SetActive(false);
             Time.timeScale = 0f;
+            this.GetComponent<Dialoguemanager>().enabled = false;
         }
         else
         {
@@ -35,6 +36,7 @@ public class Pauze : MonoBehaviour
             pauzeui.SetActive(false);
             gameui.SetActive(true);
             Time.timeScale = 1f;
+            this.GetComponent<Dialoguemanager>().enabled = true;
         }
     }
 }

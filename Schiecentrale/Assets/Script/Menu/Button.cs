@@ -28,4 +28,9 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
+    public void quit()
+    {
+        Application.Quit();
+    }
 }

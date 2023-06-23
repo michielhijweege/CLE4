@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] Animator Animator;
     public bool canopen = true;
 
+    [SerializeField] private Image thisimage;
+
     [SerializeField] List<Image> inventoryslots;
     [SerializeField] List<Sprite> allsprites;
 
@@ -33,6 +35,11 @@ public class Inventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (canopen == false)
         {
             Animator.SetBool("Active", false);
+            thisimage.raycastTarget = false;
+        }
+        if (canopen == true)
+        {
+            thisimage.raycastTarget = true;
         }
     }
 

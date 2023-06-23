@@ -8,6 +8,8 @@ public class PuzzelPiece : MonoBehaviour
     [SerializeField] private Puzzel Puzzel;
     public int nummber;
 
+    public int rotationnumber;
+
     // Update is called once per frame
     void Update()
     {
@@ -17,7 +19,15 @@ public class PuzzelPiece : MonoBehaviour
             transform.position = Input.mousePosition;
             if (Input.GetKeyDown(KeyCode.R))
             {
-                this.gameObject.transform.rotation = this.gameObject.transform.rotation * Quaternion.Euler(0, 0, 45.0f);
+                this.gameObject.transform.rotation = this.gameObject.transform.rotation * Quaternion.Euler(0, 0, 45);
+                if(rotationnumber == 7)
+                {
+                    rotationnumber = 0;
+                }
+                else
+                {
+                    rotationnumber++;
+                }
             }
         }
     }
